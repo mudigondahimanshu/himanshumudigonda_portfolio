@@ -45,7 +45,7 @@ const testimonials = [
     role: "CSE UnderGrad",
     image: "/testimonials/kalla_jayesh.jpg",
     linkedin: "https://www.linkedin.com/in/jayesh-rao-kalla-b3a75929a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    feedback: "From the first time I met Himanshu Mudigonda, I knew he wasn’t just another tech enthusiast—he was someone who saw problems as puzzles waiting to be solved. I’ve seen him dive headfirst into projects, whether it’s creating sleek web applications, building automation tools, or experimenting with real-time image processing. His journey through internships at HSBC and Providence India, along with countless hackathons, has only sharpened his skills and curiosity. Devashish isn’t just a developer; he’s a builder, a thinker, and someone who brings passion and innovation to everything he touches."
+    feedback: "From the first time I met Himanshu Mudigonda, I knew he wasn’t just another tech enthusiast—he was someone who saw problems as puzzles waiting to be solved. I’ve seen him dive headfirst into projects, whether it’s creating sleek web applications, building automation tools, or experimenting with real-time image processing. His journey through internships at HSBC and Providence India, along with countless hackathons, has only sharpened his skills and curiosity. Himanshu isn’t just a developer; he’s a builder, a thinker, and someone who brings passion and innovation to everything he touches."
   },
   {
     name: "Lakkineni Jathin",
