@@ -51,7 +51,7 @@ const ProjectCard = ({ project, featured = false }) => {
     <>
       <motion.div 
         ref={cardRef}
-        className={`bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow ${featured ? 'border-2 border-secondary' : ''}`}
+        className={`bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-300 border border-gray-100 dark:border-gray-700/50 ${featured ? 'ring-2 ring-primary/20 dark:ring-blue-400/20' : ''}`}
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ 

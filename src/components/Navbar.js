@@ -71,6 +71,7 @@ export default function Navbar() {
     { name: 'Experience', path: '/experience' },
     { name: 'Skills', path: '/skills' },
     { name: 'Projects', path: '/projects' },
+    { name: 'Achievements', path: '/achievements' },
     { name: 'Contact', path: '/contact' },
   ];
   
@@ -85,7 +86,7 @@ export default function Navbar() {
         }
       `}</style>
       
-      <nav className="bg-white dark:bg-gray-800 shadow-xs sticky top-0 z-10 transition-colors">
+      <nav className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-sm sticky top-0 z-50 transition-all duration-300 border-b border-gray-200/50 dark:border-gray-700/50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             <Link 

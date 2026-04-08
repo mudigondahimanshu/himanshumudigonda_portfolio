@@ -73,45 +73,55 @@ export default function TestimonialsSection() {
   );
 
   return (
-    <section className="section bg-gray-50 dark:bg-gray-900 py-16">
+    <section className="section py-16">
       <div className="container mx-auto px-6 lg:px-16">
-        <h2 className="page-title text-center mb-12">Testimonials</h2>
+        <h2 className="page-title text-center mb-4">What People Say</h2>
+        <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-xl mx-auto">
+          Kind words from peers and colleagues I&apos;ve had the pleasure of working with.
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentTestimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 relative"
+              className="group relative bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl border border-gray-100 dark:border-gray-700/50 transition-all duration-300 overflow-hidden"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2, type: "spring", stiffness: 100 }}
+              transition={{ delay: index * 0.15, type: "spring", stiffness: 100 }}
+              whileHover={{ y: -4 }}
             >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="relative w-14 h-14 rounded-full overflow-hidden">
-                  <Image 
+              {/* Quote decoration */}
+              <div className="absolute top-4 right-4 text-5xl font-serif text-gray-100 dark:text-gray-700/50 select-none leading-none">
+                &ldquo;
+              </div>
+
+              <div className="flex items-center gap-4 mb-4 relative z-10">
+                <div className="relative w-14 h-14 rounded-full overflow-hidden ring-2 ring-primary/20 dark:ring-blue-400/20">
+                  <Image
                     src={testimonial.image}
                     alt={testimonial.name}
                     fill
                     className="object-cover"
+                    sizes="56px"
                   />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{testimonial.name}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{testimonial.name}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
                 </div>
                 {testimonial.linkedin && (
-                  <a 
-                    href={testimonial.linkedin} 
-                    target="_blank" 
+                  <a
+                    href={testimonial.linkedin}
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                    className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
                     aria-label={`LinkedIn of ${testimonial.name}`}
                   >
                     <FaLinkedin size={20} />
                   </a>
                 )}
               </div>
-              <p className="text-gray-700 dark:text-gray-300 text-sm">{testimonial.feedback}</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed relative z-10">{testimonial.feedback}</p>
             </motion.div>
           ))}
         </div>

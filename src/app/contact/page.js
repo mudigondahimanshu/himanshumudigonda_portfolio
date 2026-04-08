@@ -15,6 +15,7 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(null);
   const [errors, setErrors] = useState({});
+  const [lastSubmitTime, setLastSubmitTime] = useState(0);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,36 +32,59 @@ export default function Contact() {
     }
   };
 
+  const sanitize = (str) => str.replace(/[<>]/g, '');
+
   const validateForm = () => {
     const newErrors = {};
-    
-    if (!form.name.trim()) {
+
+    const trimmedName = form.name.trim();
+    const trimmedEmail = form.email.trim();
+    const trimmedMessage = form.message.trim();
+
+    if (!trimmedName) {
       newErrors.name = 'Name is required';
+    } else if (trimmedName.length > 100) {
+      newErrors.name = 'Name is too long (max 100 characters)';
     }
-    
-    if (!form.email.trim()) {
+
+    if (!trimmedEmail) {
       newErrors.email = 'Email is required';
-    } else if (!/^\S+@\S+\.\S+$/.test(form.email)) {
-      newErrors.email = 'Email is invalid';
+    } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(trimmedEmail)) {
+      newErrors.email = 'Please enter a valid email address';
     }
-    
-    if (!form.message.trim()) {
+
+    if (!trimmedMessage) {
       newErrors.message = 'Message is required';
+    } else if (trimmedMessage.length > 2000) {
+      newErrors.message = 'Message is too long (max 2000 characters)';
+    } else if (trimmedMessage.length < 10) {
+      newErrors.message = 'Message is too short (min 10 characters)';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
+    // Rate limiting: 30 seconds between submissions
+    const now = Date.now();
+    if (now - lastSubmitTime < 30000) {
+      setStatus({
+        success: false,
+        message: 'Please wait before sending another message.'
+      });
+      return;
+    }
+
     setLoading(true);
     setStatus(null);
+    setLastSubmitTime(now);
 
     try {
       await emailjs.sendForm(
@@ -81,11 +105,11 @@ export default function Contact() {
         message: ''
       });
     } catch (error) {
-      console.error("EmailJS Error:", error); // This line will log the actual issue
+      console.error("EmailJS Error:", error);
       setStatus({
         success: false,
-        message: `Something went wrong: ${error?.text || error?.message || "Unknown error"}`
-      });    
+        message: 'Something went wrong. Please try again later or reach out via email directly.'
+      });
     } finally {
       setLoading(false);
     }
@@ -196,8 +220,8 @@ export default function Contact() {
         </AnimatedSection>
         
         <AnimatedSection animation="slideUp" delay={0.2} className="order-1 lg:order-2">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">Contact Information</h2>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700/50">
+            <h2 className="text-xl font-bold mb-6 gradient-text">Contact Information</h2>
             
             <div className="space-y-4">
               <div className="flex items-center">
