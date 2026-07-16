@@ -118,9 +118,10 @@ export default function Contact() {
   return (
     <div>
       <AnimatedSection animation="fadeIn">
-        <h1 className="page-title">Get In Touch</h1>
+        <p className="eyebrow">// contact</p>
+        <h1 className="page-title">Get in <span className="title-accent">touch</span></h1>
         <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-          Feel free to contact me for any inquiries, collaborations, or just to say hello!
+          Have a role, a project, or a question? Send a message — I reply fast.
         </p>
       </AnimatedSection>
       
@@ -190,7 +191,7 @@ export default function Contact() {
             <motion.button
               type="submit"
               disabled={loading}
-              className="w-full px-6 py-3 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-70 dark:bg-blue-700 dark:hover:bg-blue-600"
+              className="w-full px-6 py-3 text-white bg-gradient-to-r from-sky-500 to-indigo-600 rounded-xl font-medium shadow-md shadow-sky-500/20 hover:shadow-lg hover:shadow-sky-500/30 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 disabled:opacity-70 transition-all duration-300"
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
             >

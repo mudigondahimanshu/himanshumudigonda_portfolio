@@ -82,7 +82,7 @@ export default function IntroSplash() {
           <div className="absolute inset-0 overflow-hidden">
             <motion.div
               className="absolute w-[600px] h-[600px] rounded-full blur-[120px] opacity-20"
-              style={{ background: 'radial-gradient(circle, #3b82f6, #8b5cf6)' }}
+              style={{ background: 'radial-gradient(circle, #0ea5e9, #4f46e5)' }}
               animate={{
                 x: [-100, 100, -100],
                 y: [-50, 50, -50],
@@ -91,7 +91,7 @@ export default function IntroSplash() {
             />
             <motion.div
               className="absolute right-0 bottom-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-15"
-              style={{ background: 'radial-gradient(circle, #ec4899, #f59e0b)' }}
+              style={{ background: 'radial-gradient(circle, #f59e0b, #0ea5e9)' }}
               animate={{
                 x: [50, -50, 50],
                 y: [30, -30, 30],
@@ -126,7 +126,7 @@ export default function IntroSplash() {
                     animate={{ opacity: 1 }}
                     className={
                       isName
-                        ? 'bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent'
+                        ? 'bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent'
                         : 'text-gray-400'
                     }
                   >

@@ -5,14 +5,12 @@ import Link from 'next/link';
 import { SiLeetcode } from "react-icons/si";
 import { FaArrowRight, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import ProjectCard from '../components/ProjectCard';
-import GitHubContributions from '../components/GitHubContributions';
 import LeetCodeContributions from '../components/LeetCodeContributions';
 import ExperienceCard from '../components/ExperienceCard';
 import TestimonialsSection from '../components/TestimonialsSection';
 import getImagePath from '../utils/imageLoader';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import AnimatedCard from '../components/animations/AnimatedCard';
-import SequentialTypewriter from '../components/SequentialTypewriter';
 import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { getFeaturedProjects } from '../data/projects';
 import IntroSplash from '../components/IntroSplash';
@@ -23,15 +21,27 @@ const experiences = [
   {
     company: "Volteo Maritime",
     logo: "/logos/volteo_maritime.png",
-    title: "full-stack development Intern",
+    title: "Full-Stack Development Intern",
     date: "May 2025 – July 2025",
-    description: "Built an an automated smartport web application for seemless transportation process for shipment cargo.",
+    description: "Built an automated SmartPort web application for a seamless transportation process for shipment cargo.",
     responsibilities: [
-      "Designed frontend interfaces using express.js.",
-      "Integrated backend services using MongoDB for secure data flow.",
+      "Engineered a responsive SmartPort web app with Express.js + MongoDB backend integration.",
+      "Debugged and resolved issues on the live APMB (Andhra Pradesh Port Management System) application.",
       "Handled automation for fetching and displaying vessel movements."
     ],
-    tech: ["MongoDb", "express.js", "React"]
+    tech: ["MongoDB", "Express.js", "React"]
+  },
+  {
+    company: "Corizo",
+    logo: null,
+    title: "AI/ML Trainee",
+    date: "May 2024 – June 2024",
+    description: "Completed an intensive AI/ML training program with hands-on implementation of real-world applications.",
+    responsibilities: [
+      "Implemented machine learning models against real-world datasets.",
+      "Strengthened applied problem-solving and analytical fundamentals."
+    ],
+    tech: ["Python", "Machine Learning"]
   },
   // {
   //   company: "HSBC",
@@ -68,15 +78,15 @@ export default function Home() {
   const featuredProjects = getFeaturedProjects();
 
   const aboutMeText = [
-    "I’m Himanshu Mudigonda, a Computer Science and Engineering student at Amrita Vishwa Vidyapeetham, Coimbatore with a 7.5 CGPA. I’m passionate about Web Development, Machine Learning, and Automation, and enjoy building scalable, impactful solutions.",
-    
-    "Through internship at Volteo Maritime, I developed tools using PowerApps, SpringBoot, Django, and Python—automating processes and enhancing network operations.",
-    
-    "My projects I Engineered a responsive Smartport web application with seamless backend integration using Express.js and MongoDB, and Made changes in the existing APMB (Andra Pradesh port management system) website by enhancing the UI. I love integrating AI into practical applications.",
-    
-    "I’ve served as  an NCC Cadet. I’m also a state-level Gold Medalist in Powerlifting, which reflects my discipline and drive.",
-    
-    "In my free time, I pursue fitness and powerlifting, while staying current with the latest in tech through personal projects and continuous learning."
+    "I’m Himanshu Mudigonda, a Computer Science and Engineering student at Amrita Vishwa Vidyapeetham, Coimbatore (Class of 2027, 7.46 CGPA). I build software that actually ships — full-stack products, machine learning, and automation.",
+
+    "At Volteo Maritime, I engineered a SmartPort web application with Express.js and MongoDB, and improved the live APMB (Andhra Pradesh Port Management System) — debugging production issues for real users.",
+
+    "My recent projects carry that same end-to-end ownership: CloakDoc, a privacy tool that redacts PII from documents entirely locally, and FinPilot, an AI personal-finance copilot that runs keylessly on free-tier infrastructure — both designed, secured, tested, and deployed by me.",
+
+    "Outside the editor, I’m a state-level Gold Medalist in Powerlifting and a former NCC Cadet. The discipline transfers: show up, add weight, repeat.",
+
+    "In my free time I train, tinker with personal projects, and stay current with the latest in tech."
   ];
   
 
@@ -89,29 +99,40 @@ export default function Home() {
         <ParticleBackground />
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full">
           <AnimatedSection animation="fadeIn" className="md:w-1/2 space-y-6">
+            <motion.p
+              className="terminal-cursor text-sm text-sky-600 dark:text-sky-400"
+              style={{ fontFamily: 'var(--font-mono-ui)' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              ~/himanshu <span className="text-slate-400 dark:text-slate-500">— builds things that lift</span>
+            </motion.p>
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold gradient-text leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-slate-900 dark:text-white"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
             >
-              Himanshu Mudigonda
+              Himanshu<br />
+              <span className="gradient-text">Mudigonda</span>
             </motion.h1>
             <motion.h2
-              className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-light"
+              className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 font-light"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              Software Developer
+              Software Developer · Full-Stack &amp; ML
             </motion.h2>
             <motion.p
-              className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-lg leading-relaxed"
+              className="text-lg text-slate-600 dark:text-slate-300 max-w-lg leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              Passionate about technology, powerlifting, and building impactful solutions.
+              I ship end-to-end products — privacy tooling, AI finance copilots, real client work —
+              with the same discipline that won me state gold in powerlifting.
             </motion.p>
             <motion.div
               className="pt-4 flex flex-wrap gap-4"
@@ -119,27 +140,21 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
             >
-              <Link href="/projects" className="group relative px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center gap-2 overflow-hidden">
-                <span className="relative z-10">View Projects</span>
-                <FaArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" />
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </Link>
-              <Link href="/experience" className="group relative px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 flex items-center gap-2 overflow-hidden">
-                <span className="relative z-10">View Experience</span>
-                <FaArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" />
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </Link>
-              <Link href="/contact" className="px-6 py-3 border-2 border-primary text-primary dark:text-blue-400 dark:border-blue-400 rounded-lg hover:bg-primary hover:text-white dark:hover:bg-blue-500 dark:hover:text-white transition-all duration-300">
-                Contact Me
+              <Link href="/projects" className="btn-primary group">
+                View projects
+                <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/Himanshu_Mudigonda_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 download
-                className="px-6 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:border-primary hover:text-primary dark:hover:border-blue-400 dark:hover:text-blue-400 transition-all duration-300"
+                className="btn-ghost"
               >
-                Download Resume
+                Download resume
+              </Link>
+              <Link href="/contact" className="btn-ghost">
+                Contact me
               </Link>
             </motion.div>
           </AnimatedSection>
@@ -150,9 +165,9 @@ export default function Home() {
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
             >
               {/* Outer glow ring */}
-              <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-30 blur-lg animate-pulse" />
+              <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-sky-500 to-indigo-600 opacity-25 blur-lg animate-pulse" />
               {/* Gradient border (static, no spin) */}
-              <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-full p-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+              <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-full p-1 bg-gradient-to-r from-sky-500 to-indigo-600">
                 <div className="w-full h-full rounded-full overflow-hidden">
                   <Image
                     src={getImagePath("/projects/himanshu_mudigonda.jpg")}
@@ -164,6 +179,10 @@ export default function Home() {
                   />
                 </div>
               </div>
+              {/* Gold medal nod — quiet, single accent */}
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 chip-gold whitespace-nowrap shadow-md">
+                🥇 State gold · powerlifting
+              </div>
             </motion.div>
           </AnimatedSection>
         </div>
@@ -173,10 +192,11 @@ export default function Home() {
       <AnimatedSection animation="slideInRight" delay={0.2} className="section">
         <div className="relative p-8 md:p-12 rounded-2xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
           {/* Decorative gradient blob */}
-          <div className="absolute -top-20 -right-20 w-64 h-64 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rounded-full blur-3xl" />
+          <div className="absolute -top-20 -right-20 w-64 h-64 bg-gradient-to-br from-sky-400/20 to-indigo-400/20 rounded-full blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-gradient-to-br from-indigo-400/15 to-sky-400/15 rounded-full blur-3xl" />
 
-          <h2 className="page-title relative z-10">About Me</h2>
+          <p className="eyebrow relative z-10">// about</p>
+          <h2 className="page-title relative z-10">The person behind the <span className="title-accent">commits</span></h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
             <div className="md:col-span-2 space-y-4">
               {aboutMeText.map((paragraph, index) => (
@@ -195,10 +215,10 @@ export default function Home() {
             <AnimatedSection animation="slideInRight" delay={0.2} className="md:col-span-1">
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { value: '5+', label: 'Projects', color: 'from-blue-500 to-cyan-500' },
-                  { value: '18+', label: 'Skills', color: 'from-purple-500 to-pink-500' },
-                  { value: '1+', label: 'Internships', color: 'from-orange-500 to-red-500' },
-                  { value: '3+', label: 'Hackathons', color: 'from-green-500 to-emerald-500' },
+                  { value: '7+', label: 'Projects', color: 'from-sky-500 to-cyan-400' },
+                  { value: '18+', label: 'Skills', color: 'from-indigo-500 to-violet-400' },
+                  { value: '1+', label: 'Internships', color: 'from-amber-500 to-orange-400' },
+                  { value: '3+', label: 'Hackathons', color: 'from-emerald-500 to-teal-400' },
                 ].map((stat, index) => (
                   <motion.div
                     key={index}
@@ -221,7 +241,8 @@ export default function Home() {
 
       {/* Experience Section */}
       <AnimatedSection animation="slideUp" className="section">
-        <h2 className="page-title">Experience</h2>
+        <p className="eyebrow">// experience</p>
+        <h2 className="page-title">Where I&apos;ve <span className="title-accent">shipped</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {experiences.map((exp, index) => (
             <ExperienceCard key={index} {...exp} />
@@ -232,7 +253,8 @@ export default function Home() {
 
       {/* Featured Skills */}
       <AnimatedSection animation="slideUp" className="section">
-        <h2 className="page-title">Featured Skills</h2>
+        <p className="eyebrow">// skills</p>
+        <h2 className="page-title">Tools of the <span className="title-accent">trade</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             { title: 'Programming', skills: ['Python', 'Java', 'JavaScript', 'C++', 'C'], icon: '💻', gradient: 'from-blue-500/10 to-cyan-500/10' },
@@ -258,15 +280,16 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <Link href="/skills" className="inline-flex items-center px-6 py-2.5 text-primary dark:text-blue-400 font-medium border-2 border-primary/30 dark:border-blue-400/30 rounded-lg hover:bg-primary hover:text-white dark:hover:bg-blue-500 dark:hover:text-white transition-all duration-300">
-            See all skills <FaArrowRight className="ml-2" />
+          <Link href="/skills" className="btn-ghost">
+            See all skills <FaArrowRight className="ml-1" />
           </Link>
         </div>
       </AnimatedSection>
 
       {/* Featured Projects */}
       <AnimatedSection animation="slideUp" className="section">
-        <h2 className="page-title">Featured Projects</h2>
+        <p className="eyebrow">// projects</p>
+        <h2 className="page-title">Selected <span className="title-accent">work</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {featuredProjects.map((project, index) => (
             <AnimatedCard key={project.id} index={index} className="h-full">
@@ -275,8 +298,8 @@ export default function Home() {
           ))}
         </div>
         <AnimatedSection animation="fadeIn" delay={0.5} className="mt-8 text-center">
-          <Link href="/projects" className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-md hover:bg-blue-700 transition">
-            View All Projects <FaArrowRight className="ml-2" />
+          <Link href="/projects" className="btn-primary">
+            View all projects <FaArrowRight className="ml-1" />
           </Link>
         </AnimatedSection>
       </AnimatedSection>
@@ -285,10 +308,11 @@ export default function Home() {
       {/* LeetCode Contributions */}
 
       <AnimatedSection animation="slideUp" className="section">
+        <p className="eyebrow">// leetcode</p>
         <h2 className="page-title">
           <span className="flex items-center">
           <SiLeetcode className="text-orange-400 mr-2" size={28} />
-            LeetCode Activity
+            Practice under <span className="title-accent ml-2">load</span>
           </span>
         </h2>
         <p className="text-gray-600 dark:text-gray-300 mb-2">

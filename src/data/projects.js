@@ -1,5 +1,39 @@
 export const projectsData = [
   {
+    id: 5,
+    title: "CLOAKDOC - PRIVACY-PRESERVING DOCUMENT SANITIZER",
+    description: "Full-stack MERN app that redacts PII from PDFs/DOCX locally (no external AI) with format-faithful output, visual before/after preview, and encrypted auto-expiring storage. Built to solve a real problem: sharing documents with AI assistants (ChatGPT, Claude) without leaking personal data — so all detection runs 100% locally using regex + pure-JS NLP. It detects 18+ PII categories (names, emails, phones, SSN, Aadhaar, PAN, credit cards, IBAN and more) with four configurable actions per category, including consistent [PERSON_1] aliases via HMAC fingerprinting so no plaintext PII is ever stored. Output stays format-faithful: DOCX is redacted in-place at the XML level and PDFs are rebuilt from the operator stream with exact position, font and color preserved — not a black box overlay that still leaks text underneath. A Claude-style chat UI renders true visual previews of the sanitized output with a per-document privacy risk score, backed by AES-256-GCM encrypted, auto-expiring storage and 22 automated tests, shipped as a one-command Docker deployment.",
+    image: "/projects/cloakdoc1.png",
+    images: [ // all images (for overlay modal or gallery)
+      "/projects/cloakdoc1.png",
+      "/projects/cloakdoc2.png",
+      "/projects/cloakdoc3.png",
+      "/projects/cloakdoc4.png",
+    ],
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Docker"],
+    codeUrl: "https://github.com/mudigondahimanshu/CloakDoc",
+    featured: true,
+    tags: ["javascript", "React", "Node.js", "Express", "MongoDB", "Docker", "Security"],
+    year: "2026"
+  },
+  {
+    id: 6,
+    title: "FINPILOT - AI PERSONAL FINANCE COPILOT",
+    description: "FinPilot is a full-stack AI-powered personal finance copilot — originally started as a stock paper-trading platform, then pivoted into a pure personal-finance product: budgets with live utilization alerts, savings goals with pace-based projections, and zero-config subscription detection that flags recurring payments and price creep straight from transaction history. Its AI copilot answers questions grounded in the user's own spending, budgets and goals via RAG, and works completely keylessly out of the box with an optional provider fallback chain (Groq → Gemini → Anthropic → Ollama). Built with Next.js 14, FastAPI, PostgreSQL/TimescaleDB + pgvector and Redis, it ships real ML: XGBoost transaction auto-categorization, an ARIMA + LSTM ensemble for 30-day spend forecasting, and Isolation Forest + graph analysis for fraud detection. Security is engineered end-to-end — JWT refresh-token rotation with Redis-backed revocation, Postgres row-level security, TOTP MFA, Google OAuth2 — and the whole stack deploys on free-tier infrastructure via a one-click Render blueprint, gated by 87 CI tests and an OWASP ZAP baseline scan.",
+    image: "/projects/finpilot1.png",
+    images: [ // all images (for overlay modal or gallery)
+      "/projects/finpilot1.png",
+      "/projects/finpilot2.png",
+      "/projects/finpilot3.png",
+      "/projects/finpilot4.png",
+    ],
+    technologies: ["Next.js", "TypeScript", "FastAPI", "PostgreSQL"],
+    codeUrl: "https://github.com/mudigondahimanshu/FINPILOT",
+    featured: true,
+    tags: ["typescript", "javascript", "python", "ml", "Next.js", "FastAPI", "PostgreSQL", "Redis"],
+    year: "2026"
+  },
+  {
     id: 1,
     title: "API-DRIVEN FINANCIAL DATA AGGREGATOR",
     description: "This project delivers an API that aggregates and normalizes financial data from multiple sources, exposing a unified interface and a real-time React dashboard for analysis. Built with FastAPI and MongoDB, it offers 12+ documented endpoints (OpenAPI) with API-key authentication, supports bulk CSV ingestion and real-time updates, and powers a configurable UI featuring 8+ Recharts visualizations. The system indexes and aggregates over 500k records to enable sub-second queries.",
@@ -18,7 +52,7 @@ export const projectsData = [
     technologies: ["React", "FastAPI", "MongoDB"],
     codeUrl: "https://github.com/mudigondahimanshu/Fastapi-Finance-Dashboard.git",
     featured: true,
-    tags: ["React", "FastAPI", "MongoDB"],
+    tags: ["React", "FastAPI", "MongoDB", "python", "javascript"],
     year: "2025"
   },
   {
@@ -36,7 +70,7 @@ export const projectsData = [
     codeUrl: "https://github.com/mudigondahimanshu/FTP-fitnessWebsite.git",
     demoUrl: "https://ftp-fitness-website.vercel.app/",
     featured: true,
-    tags: ["React", "flask", "MongoDB"],
+    tags: ["React", "flask", "MongoDB", "python", "javascript"],
     year: "2025"
   },
   // {

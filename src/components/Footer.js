@@ -24,14 +24,14 @@ export default function Footer() {
   return (
     <footer className="relative bg-gradient-to-b from-gray-900 to-gray-950 dark:from-gray-900 dark:to-black text-white py-16 transition-colors overflow-hidden">
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-pink-600/5" />
+      <div className="absolute inset-0 bg-gradient-to-r from-sky-600/5 to-indigo-600/5" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h2 className="text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Himanshu Mudigonda
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
+              <span style={{ fontFamily: 'var(--font-mono-ui)' }}>~/</span>Himanshu Mudigonda
             </h2>
             <p className="text-gray-400 max-w-xs">
               Software Developer passionate about building impactful solutions with modern technologies.

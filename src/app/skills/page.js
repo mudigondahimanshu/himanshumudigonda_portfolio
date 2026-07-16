@@ -1,6 +1,6 @@
 // import { FaHtml5, FaCss3Alt, FaJs, FaJava, FaPython, FaGit, FaWindows, FaApple, FaLinux, FaDesktop, FaAndroid} from 'react-icons/fa';
-import { FaJava, FaPython, FaJs, FaGit, FaHtml5, FaCss3Alt, FaWindows, FaApple, FaLinux, FaAndroid, FaDatabase } from "react-icons/fa";
-import { SiCplusplus, SiMysql, SiFirebase, SiMongodb, SiDjango, SiFlask, SiReact, SiNodedotjs, SiJquery, SiSqlite, SiPostman, SiGithub, SiIos } from "react-icons/si";
+import { FaJava, FaPython, FaJs, FaGit, FaHtml5, FaCss3Alt, FaWindows, FaApple, FaLinux, FaAndroid, FaDatabase, FaDocker } from "react-icons/fa";
+import { SiCplusplus, SiMysql, SiFirebase, SiMongodb, SiDjango, SiFlask, SiReact, SiNodedotjs, SiJquery, SiSqlite, SiPostman, SiGithub, SiIos, SiTypescript, SiNextdotjs, SiFastapi, SiPostgresql, SiRedis, SiExpress, SiGithubactions } from "react-icons/si";
 
 // import { SiCplusplus, SiMysql, SiFirebase, SiIos } from 'react-icons/si';
 import { GiSolderingIron } from 'react-icons/gi';
@@ -17,6 +17,7 @@ export default function Skills() {
         { name: "C/C++", icon: <SiCplusplus className="text-blue-600" size={40} />, level: 70 },
         { name: "Java", icon: <FaJava className="text-red-600" size={40} />, level: 80 },
         { name: "JavaScript", icon: <FaJs className="text-yellow-400" size={40} />, level: 65 },
+        { name: "TypeScript", icon: <SiTypescript className="text-blue-600" size={40} />, level: 60 },
         { name: "HTML5", icon: <FaHtml5 className="text-orange-500" size={40} />, level: 80 },
         { name: "CSS3", icon: <FaCss3Alt className="text-blue-500" size={40} />, level: 70 },
       ]
@@ -24,20 +25,23 @@ export default function Skills() {
     {
       category: "Frameworks & Libraries",
       items: [
+        { name: "ReactJS", icon: <SiReact className="text-cyan-500" size={40} />, level: 70 },
+        { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" size={40} />, level: 65 },
+        { name: "Node.js", icon: <SiNodedotjs className="text-green-600" size={40} />, level: 60 },
+        { name: "Express.js", icon: <SiExpress className="text-gray-700 dark:text-gray-300" size={40} />, level: 65 },
+        { name: "FastAPI", icon: <SiFastapi className="text-teal-500" size={40} />, level: 70 },
         { name: "Django", icon: <SiDjango className="text-green-700" size={40} />, level: 85 },
         { name: "Flask", icon: <SiFlask className="text-gray-700 dark:text-gray-300" size={40} />, level: 75 },
-        { name: "ReactJS", icon: <SiReact className="text-cyan-500" size={40} />, level: 70 },
-        { name: "Node.js", icon: <SiNodedotjs className="text-green-600" size={40} />, level: 60 },
-        { name: "jQuery", icon: <SiJquery className="text-purple-500" size={40} />, level: 60 },
       ]
     },
     {
-      category: "Databases",
+      category: "Databases & Caching",
       items: [
         { name: "MongoDB", icon: <SiMongodb className="text-green-700" size={40} />, level: 70 },
+        { name: "PostgreSQL", icon: <SiPostgresql className="text-sky-700" size={40} />, level: 65 },
         { name: "MySQL", icon: <SiMysql className="text-blue-800" size={40} />, level: 75 },
+        { name: "Redis", icon: <SiRedis className="text-red-500" size={40} />, level: 55 },
         { name: "SQLite", icon: <SiSqlite className="text-gray-600" size={40} />, level: 60 },
-        { name: "NoSQL", icon: <FaDatabase className="text-indigo-600" size={40} />, level: 65 },
       ]
     },
     {
@@ -45,7 +49,8 @@ export default function Skills() {
       items: [
         { name: "Git", icon: <FaGit className="text-orange-600" size={40} />, level: 85 },
         { name: "GitHub", icon: <SiGithub className="text-black dark:text-white" size={40} />, level: 85 },
-        // { name: "VS Code", icon: <SiVisualstudiocode className="text-blue-600" size={40} />, level: 90 },
+        { name: "Docker", icon: <FaDocker className="text-blue-500" size={40} />, level: 65 },
+        { name: "CI/CD (GitHub Actions)", icon: <SiGithubactions className="text-sky-600" size={40} />, level: 60 },
         { name: "Postman", icon: <SiPostman className="text-orange-500" size={40} />, level: 75 },
       ]
     },
@@ -63,9 +68,10 @@ export default function Skills() {
   return (
     <div>
       <AnimatedSection animation="fadeIn" amount={0.001} margin="0px 0px -5% 0px">
-        <h1 className="page-title">My Skills</h1>
+        <p className="eyebrow">// skills</p>
+        <h1 className="page-title">My <span className="title-accent">toolkit</span></h1>
         <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-          These are the technologies and tools I specialize in. I'm constantly learning and adding new skills to my skill set.
+          The technologies I build with — each one exercised in a shipped project, not just a tutorial.
         </p>
       </AnimatedSection>
 
@@ -105,16 +111,15 @@ export default function Skills() {
         amount={0.001}
         margin="0px 0px -5% 0px"
       >
-        <h2 className="text-2xl font-bold mb-4 text-secondary dark:text-gray-200">Always Learning</h2>
+        <h2 className="text-2xl font-bold mb-4 text-slate-800 dark:text-gray-200">Currently adding weight</h2>
         <p className="text-gray-700 dark:text-gray-300">
-          Technology is always evolving, and so am I. I'm currently improving my knowledge in:
+          Technology is always evolving, and so am I. On the bar right now:
         </p>
         <ul className="list-disc list-inside mt-4 space-y-2 text-gray-700 dark:text-gray-300">
-          <li>NextJS</li>
-          <li>AngularJS</li>
-          <li>GCP</li>
-          <li>Docker</li>
           <li>Kubernetes</li>
+          <li>AWS &amp; GCP</li>
+          <li>LLM applications (RAG, agents)</li>
+          <li>System design at scale</li>
         </ul>
       </AnimatedSection>
     </div>

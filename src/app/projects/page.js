@@ -17,13 +17,11 @@ export default function Projects() {
 
   const filters = [
     { id: 'all', label: 'All' },
-    { id: 'ml', label: 'ML' },
-    // { id: 'fireba', label: 'Database' },
-    // { id: 'game', label: 'Game' },
-    // { id: 'iot', label: 'IoT' },
-    { id: 'java', label: 'Java' },
+    { id: 'javascript', label: 'JavaScript' },
+    { id: 'typescript', label: 'TypeScript' },
     { id: 'python', label: 'Python' },
-    { id: 'javascript', label: 'JavaScript' }
+    { id: 'react', label: 'React' },
+    { id: 'ml', label: 'ML' }
   ];
   
   const sortOptions = [
@@ -33,9 +31,9 @@ export default function Projects() {
   ];
 
   useEffect(() => {
-    const tagFilteredProjects = activeFilter === 'all' 
-      ? projects 
-      : projects.filter(project => project.tags.includes(activeFilter));
+    const tagFilteredProjects = activeFilter === 'all'
+      ? projects
+      : projects.filter(project => project.tags.some(tag => tag.toLowerCase() === activeFilter));
       
     const sortedProjects = sortProjects(tagFilteredProjects, activeSorting);
     setFilteredProjects(sortedProjects);
@@ -78,9 +76,10 @@ export default function Projects() {
   return (
     <div>
       <AnimatedSection animation="fadeIn" margin="0px" amount={0.005}>
-        <h1 className="page-title">My Projects</h1>
+        <p className="eyebrow">// projects</p>
+        <h1 className="page-title">Things I&apos;ve <span className="title-accent">built</span></h1>
         <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-          Explore my latest work and technical projects
+          Full products, not toy demos — each one links straight to its code.
         </p>
       </AnimatedSection>
 
@@ -88,11 +87,11 @@ export default function Projects() {
         <AnimatedSection animation="slideUp" margin="0px" amount={0.005} className="filter-buttons flex flex-wrap gap-2 flex-grow">
           {filters.map((filter, index) => (
             <AnimatedCard key={filter.id} index={index} staggerDelay={0.03} margin="0px" amount={0.005}>
-              <button 
-                className={`filter-btn px-4 py-2 rounded-md ${
-                  activeFilter === filter.id 
-                    ? 'bg-secondary text-white' 
-                    : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600'
+              <button
+                className={`filter-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  activeFilter === filter.id
+                    ? 'bg-gradient-to-r from-sky-500 to-indigo-600 text-white shadow-md shadow-sky-500/25'
+                    : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-sky-400 hover:text-sky-600 dark:hover:text-sky-400'
                 }`}
                 onClick={() => setActiveFilter(filter.id)}
               >
@@ -106,11 +105,11 @@ export default function Projects() {
           <span className="self-center text-gray-700 dark:text-gray-300 font-medium">Sort by year:</span>
           {sortOptions.map((option, index) => (
             <AnimatedCard key={option.id} index={index} staggerDelay={0.001} margin="0px" amount={0.005}>
-              <button 
-                className={`sort-btn px-4 py-2 rounded-md ${
-                  activeSorting === option.id 
-                    ? 'bg-green-600 text-white' 
-                    : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600'
+              <button
+                className={`sort-btn px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  activeSorting === option.id
+                    ? 'bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 shadow-md'
+                    : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-sky-400 hover:text-sky-600 dark:hover:text-sky-400'
                 }`}
                 onClick={() => setActiveSorting(option.id)}
               >

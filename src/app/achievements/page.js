@@ -16,10 +16,10 @@ const achievements = [
   },
   {
     icon: <FaGraduationCap className="text-blue-500" size={32} />,
-    title: 'B.Tech CSE - 7.5 CGPA',
+    title: 'B.Tech CSE - 7.46 CGPA',
     category: 'Education',
     description: 'Pursuing Computer Science & Engineering at Amrita Vishwa Vidyapeetham, Coimbatore with strong academic performance.',
-    year: '2021 - Present',
+    year: '2023 - 2027',
     highlight: false,
   },
   {
@@ -32,10 +32,18 @@ const achievements = [
   },
   {
     icon: <FaTrophy className="text-orange-500" size={32} />,
-    title: 'Hackathon Participant',
+    title: 'Hackathon Participant & ICPC Committee',
     category: 'Competition',
-    description: 'Actively participated in multiple hackathons including Smart India Hackathon, building innovative solutions under tight deadlines.',
-    year: '2023 - 2024',
+    description: 'Participated in multiple hackathons including Smart India Hackathon, and served on the ICPC Hackathon Committee — building and judging solutions under tight deadlines.',
+    year: '2023 - 2025',
+    highlight: false,
+  },
+  {
+    icon: <FaMedal className="text-cyan-500" size={32} />,
+    title: 'Bronze Medalist - Skating',
+    category: 'Sports',
+    description: 'Won a Bronze Medal in competitive skating, adding to a track record of athletic discipline alongside powerlifting.',
+    year: '2023',
     highlight: false,
   },
   {
@@ -57,17 +65,18 @@ const achievements = [
 ];
 
 const stats = [
-  { label: 'Projects Built', value: '5+', color: 'from-blue-500 to-cyan-500' },
-  { label: 'Technologies Used', value: '18+', color: 'from-purple-500 to-pink-500' },
-  { label: 'Hackathons', value: '3+', color: 'from-orange-500 to-red-500' },
-  { label: 'Internships', value: '1+', color: 'from-green-500 to-emerald-500' },
+  { label: 'Projects Built', value: '7+', color: 'from-sky-500 to-cyan-400' },
+  { label: 'Technologies Used', value: '18+', color: 'from-indigo-500 to-violet-400' },
+  { label: 'Hackathons', value: '3+', color: 'from-amber-500 to-orange-400' },
+  { label: 'Internships', value: '1+', color: 'from-emerald-500 to-teal-400' },
 ];
 
 export default function AchievementsPage() {
   return (
     <div className="space-y-16">
       <AnimatedSection animation="fadeIn">
-        <h1 className="page-title text-center">Achievements & Milestones</h1>
+        <p className="eyebrow justify-center">// achievements</p>
+        <h1 className="page-title text-center">Milestones on the <span className="title-accent">bar</span></h1>
         <p className="text-lg text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto">
           A timeline of accomplishments, certifications, and milestones that define my journey.
         </p>

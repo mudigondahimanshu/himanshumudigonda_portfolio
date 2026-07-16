@@ -7,15 +7,28 @@ const experiences = [
   {
     company: "Volteo Maritime",
     logo: "/logos/volteo_maritime.png",
-    title: "full-stack development Intern",
+    title: "Full-Stack Development Intern",
     date: "May 2025 – July 2025",
-    description: "Built an an automated smartport web application for seemless transportation process for shipment cargo.",
+    description: "Built an automated SmartPort web application for a seamless transportation process for shipment cargo.",
     responsibilities: [
-      "Designed frontend interfaces using express.js.",
-      "Integrated backend services using MongoDB for secure data flow.",
-      "Handled automation for fetching and displaying vessel movements."
+      "Engineered a responsive SmartPort web app with Express.js + MongoDB backend integration.",
+      "Debugged and resolved usability and integration issues on the live APMB (Andhra Pradesh Port Management System) application.",
+      "Documented technical workflows into clear, structured reports for non-technical stakeholders."
     ],
-    tech: ["MongoDb", "express.js", "React"]
+    tech: ["MongoDB", "Express.js", "React"]
+  },
+  {
+    company: "Corizo",
+    logo: null,
+    title: "AI/ML Trainee",
+    date: "May 2024 – June 2024",
+    description: "Completed an intensive AI/ML training program with hands-on implementation of real-world applications.",
+    responsibilities: [
+      "Implemented machine learning models against real-world datasets.",
+      "Strengthened applied problem-solving and analytical fundamentals.",
+      "Presented working implementations at the end of the program."
+    ],
+    tech: ["Python", "Machine Learning"]
   },
   // {
   //   company: "Providence India",
@@ -61,10 +74,11 @@ const experiences = [
 export default function ExperiencePage() {
   return (
     <div className="container mx-auto px-6 py-12 space-y-10">
-      <AnimatedSection animation="fadeInUp">
-        <h1 className="text-4xl font-bold mb-4 text-center">My Professional Experience</h1>
+      <AnimatedSection animation="slideUp">
+        <p className="eyebrow justify-center">// experience</p>
+        <h1 className="page-title text-center">Where I&apos;ve <span className="title-accent">shipped</span></h1>
         <p className="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Here's a detailed timeline of my internships and professional growth.
+          Internships and training — real codebases, real users, real deadlines.
         </p>
       </AnimatedSection>
 

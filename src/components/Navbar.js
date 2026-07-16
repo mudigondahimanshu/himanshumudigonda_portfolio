@@ -1,15 +1,16 @@
 'use client'
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import ThemeToggle from './ThemeToggle';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
 export default function Navbar() {
   const pathname = usePathname();
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
@@ -86,7 +87,13 @@ export default function Navbar() {
         }
       `}</style>
       
-      <nav className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-sm sticky top-0 z-50 transition-all duration-300 border-b border-gray-200/50 dark:border-gray-700/50">
+      <nav className="bg-white/80 dark:bg-slate-950/80 backdrop-blur-lg shadow-sm sticky top-0 z-50 transition-all duration-300 border-b border-gray-200/50 dark:border-slate-700/50">
+        {/* Reading progress */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-[2px] origin-left bg-gradient-to-r from-sky-500 to-indigo-500"
+          style={{ scaleX: progress }}
+          aria-hidden="true"
+        />
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             <Link 
@@ -109,14 +116,16 @@ export default function Navbar() {
                   style={getSpinStyle()}
                 /> */}
               </motion.div>
-              <motion.span 
-                className={`text-xl font-bold text-primary dark:text-blue-400 group-hover:text-blue-600 dark:group-hover:text-blue-300`}
+              <motion.span
+                className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors"
+                style={{ fontFamily: 'var(--font-display)' }}
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: isLoaded ? 0 : -20, opacity: isLoaded ? 1 : 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
+                <span className="text-sky-600 dark:text-sky-400" style={{ fontFamily: 'var(--font-mono-ui)' }}>~/</span>
                 Himanshu Mudigonda
-                <span className="text-xs text-gray-500 dark:text-gray-400"> | Software Developer</span>
+                <span className="text-xs font-normal text-gray-500 dark:text-gray-400" style={{ fontFamily: 'var(--font-mono-ui)' }}> · software developer</span>
                 {isSpinning && <span className="text-xs ml-1">🌀</span>}
               </motion.span>
             </Link>

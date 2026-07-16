@@ -11,11 +11,17 @@ export default function ExperienceCard({ company, logo, title, date, description
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
       {/* Gradient accent on top */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
       <div className="flex items-start gap-4">
-        <div className="w-14 h-14 relative flex-shrink-0 rounded-xl overflow-hidden bg-gray-50 dark:bg-gray-700/50 p-2">
-          <Image src={logo} alt={company} fill className="object-contain" sizes="56px" />
+        <div className="w-14 h-14 relative flex-shrink-0 rounded-xl overflow-hidden bg-gray-50 dark:bg-gray-700/50 p-2 flex items-center justify-center">
+          {logo ? (
+            <Image src={logo} alt={company} fill className="object-contain" sizes="56px" />
+          ) : (
+            <span className="text-xl font-bold text-sky-600 dark:text-sky-400" style={{ fontFamily: 'var(--font-display)' }}>
+              {company?.charAt(0)}
+            </span>
+          )}
         </div>
         <div>
           <h3 className="text-xl font-bold text-gray-900 dark:text-white">{title}</h3>
@@ -29,7 +35,7 @@ export default function ExperienceCard({ company, logo, title, date, description
         <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
           {responsibilities.map((item, i) => (
             <li key={i} className="flex items-start gap-2">
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex-shrink-0" />
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-sky-500 to-indigo-500 flex-shrink-0" />
               {item}
             </li>
           ))}
